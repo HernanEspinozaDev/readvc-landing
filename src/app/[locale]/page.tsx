@@ -13,9 +13,7 @@ import { cn } from "@/lib/utils"
 import { Spotlight } from "@/components/ui/spotlight"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { BackgroundVideo } from "@/components/background-video"
-import dynamic from "next/dynamic"
-
-const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: false })
+import { ContactForm } from "@/components/contact-form"
 import Image from "next/image"
 
 export default function Home() {
