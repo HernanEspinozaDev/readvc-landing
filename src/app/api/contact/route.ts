@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
+export const runtime = "edge";
+
 const contactSchema = z.object({
   name: z.string().min(2, { message: "El nombre es demasiado corto" }),
   email: z.string().email({ message: "Email inválido" }),
