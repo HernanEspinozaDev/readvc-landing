@@ -341,42 +341,6 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
-                    </div>
-
-                    <div className="flex flex-col gap-1 w-4/5">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold ml-2">{t("howItWorks.mockupDoctor")}</span>
-                      <div className="p-3.5 rounded-2xl rounded-tl-none bg-card border shadow-sm text-[15px] border-primary/50 relative">
-                        <span className="absolute -left-1.5 top-3 w-3 h-3 bg-primary rounded-full animate-ping opacity-75"></span>
-                        <p className="text-foreground">{t("howItWorks.mockupDoctorMsg2")}<span className="text-muted-foreground animate-pulse">|</span></p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Input Area */}
-                  <div className="p-4 bg-background border-t">
-                    <div className="flex gap-2 mb-3 overflow-x-auto pb-1 hide-scrollbar">
-                      <span className="whitespace-nowrap px-3 py-1 bg-secondary rounded-full text-xs font-medium border cursor-pointer hover:bg-secondary/80">{t("howItWorks.mockupReply1")}</span>
-                      <span className="whitespace-nowrap px-3 py-1 bg-secondary rounded-full text-xs font-medium border cursor-pointer hover:bg-secondary/80">{t("howItWorks.mockupReply2")}</span>
-                      <span className="whitespace-nowrap px-3 py-1 bg-secondary rounded-full text-xs font-medium border cursor-pointer hover:bg-secondary/80">{t("howItWorks.mockupReply3")}</span>
-                    </div>
-                    <div className="relative">
-                      <input type="text" placeholder={t("howItWorks.mockupPlaceholder")} className="w-full bg-secondary border rounded-full py-3 px-4 pr-12 text-sm outline-none focus:ring-2 focus:ring-primary/50" />
-                      <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                      </button>
-                    </div>
-                    <div className="mt-4 flex gap-6 justify-center">
-                      <div className="h-14 w-14 rounded-full bg-[#EF4444] flex items-center justify-center shadow-md cursor-pointer hover:bg-[#DC2626] transition-colors">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91" /><line x1="22" x2="2" y1="2" y2="22" /></svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
 
       {/* Business Model / Pricing */}
       <Pricing />
