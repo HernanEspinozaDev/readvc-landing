@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
-
-export const runtime = "edge";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "El nombre es demasiado corto" }),
@@ -12,12 +11,22 @@ const contactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    // Get API key from environment
-    // In Cloudflare Pages, this comes from wrangler.jsonc secrets configuration
-    const apiKey = process.env.RESEND_API_KEY?.trim();
+    // Intentar obtener la API Key usando process.env o el contexto de Cloudflare Pages
+    let apiKey = process.env.RESEND_API_KEY?.trim();
+    
+    try {
+      // opennextjs-cloudflare inyecta las variables de entorno en el contexto de la request
+      const cfContext = await getCloudflareContext({ async: true });
+      if (cfContext?.env?.RESEND_API_KEY) {
+        apiKey = (cfContext.env.RESEND_API_KEY as string).trim();
+      }
+    } catch (e) {
+      // Ignorar si no estamos en el entorno de Cloudflare
+      console.log("No se pudo obtener el contexto de Cloudflare, usando process.env fallback.");
+    }
 
     if (!apiKey) {
-      console.error("RESEND_API_KEY not configured. Check Cloudflare Pages environment variables.");
+      console.error("RESEND_API_KEY no está configurado. Verifica los secretos en Cloudflare Pages.");
       return NextResponse.json(
         { error: "SERVER_ERROR" },
         { status: 500 }
