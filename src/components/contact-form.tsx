@@ -35,7 +35,8 @@ export function ContactForm() {
     setSubmitStatus(null);
     setErrorMessage("");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -56,7 +57,7 @@ export function ContactForm() {
 
       if (res.ok && result.success) {
         setSubmitStatus("success");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         setSubmitStatus("error");
         const errorCode = result.error || "UNKNOWN_ERROR";
