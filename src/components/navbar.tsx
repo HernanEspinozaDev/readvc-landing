@@ -43,11 +43,20 @@ export function Navbar() {
   ]
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLarge, setIsLarge] = useState(false)
 
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
+
+  // Detect viewport width on client and update `isLarge` for conditional rendering
+  useEffect(() => {
+    const check = () => setIsLarge(window.matchMedia('(min-width: 1024px)').matches)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -91,13 +100,15 @@ export function Navbar() {
         <div className="flex items-center space-x-2">
           <LanguageSwitcher />
           <ThemeToggle />
-          {/* Contact button - desktop only */}
-          <Link 
-            href={pathname === "/" ? "/#contact" : "/#contact"}
-            className={buttonVariants({ className: "hidden lg:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-medium" })}
-          >
-            {t("contact")}
-          </Link>
+          {/* Contact button - desktop only (render only when viewport is large) */}
+          {isLarge && (
+            <Link 
+              href={pathname === "/" ? "/#contact" : "/#contact"}
+              className={buttonVariants({ className: "hidden lg:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-medium" })}
+            >
+              {t("contact")}
+            </Link>
+          )}
           {/* Mobile menu button */}
           <Button 
             variant="ghost" 
