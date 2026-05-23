@@ -61,7 +61,13 @@ export function ContactForm() {
         setSubmitStatus("error");
         const errorCode = result.error || "UNKNOWN_ERROR";
         const localeErrors = errorMessages[locale as keyof typeof errorMessages] || errorMessages.en;
-        setErrorMessage(localeErrors[errorCode as keyof typeof localeErrors] || localeErrors.UNKNOWN_ERROR);
+        
+        // Mostrar el error específico de Zod si existe (details)
+        if (errorCode === "VALIDATION_ERROR" && result.details) {
+          setErrorMessage(result.details);
+        } else {
+          setErrorMessage(localeErrors[errorCode as keyof typeof localeErrors] || localeErrors.UNKNOWN_ERROR);
+        }
       }
     } catch (error) {
       setSubmitStatus("error");
