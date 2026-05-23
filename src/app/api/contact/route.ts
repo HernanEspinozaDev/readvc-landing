@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 import { z } from "zod";
-import { getCloudflareContext } from "@opennextjs/cloudflare";
-
-export const runtime = "edge";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "El nombre es demasiado corto" }),
@@ -12,29 +10,17 @@ const contactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    // Intentar obtener la API Key usando process.env o el contexto de Cloudflare Pages
-    let apiKey = process.env.RESEND_API_KEY?.trim();
-    
-    try {
-      // opennextjs-cloudflare inyecta las variables de entorno en el contexto de la request
-      const cfContext = await getCloudflareContext({ async: true });
-      const env = cfContext?.env as any;
-      if (env?.RESEND_API_KEY) {
-        apiKey = (env.RESEND_API_KEY as string).trim();
-      }
-    } catch (e) {
-      // Ignorar si no estamos en el entorno de Cloudflare
-      console.log("No se pudo obtener el contexto de Cloudflare, usando process.env fallback.");
-    }
+    const apiKey = process.env.RESEND_API_KEY?.trim();
 
     if (!apiKey) {
-      console.error("RESEND_API_KEY no está configurado. Verifica los secretos en Cloudflare Pages.");
+      console.error("RESEND_API_KEY no está configurado. Verifica tus variables de entorno en Vercel.");
       return NextResponse.json(
         { error: "SERVER_ERROR" },
         { status: 500 }
       );
     }
 
+    const resend = new Resend(apiKey);
     const body = await req.json();
     const { name, email, message, locale } = body;
 
@@ -95,33 +81,25 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    // Enviar los correos usando fetch nativo directamente a la API de Resend (compatible 100% con Cloudflare Edge)
-    const response = await fetch('https://api.resend.com/emails/batch', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
+    // Enviar los correos usando el SDK oficial de Resend
+    const { data, error } = await resend.batch.send([
+      {
+        from: "ReadVC Contacto <noreply@readvc.app>",
+        to: ["hello@readvc.app"],
+        subject: `📩 Nuevo mensaje de ${name}`,
+        replyTo: email,
+        html: teamHtml,
       },
-      body: JSON.stringify([
-        {
-          from: "ReadVC Contacto <noreply@readvc.app>",
-          to: ["hello@readvc.app"],
-          subject: `📩 Nuevo mensaje de ${name}`,
-          reply_to: email, // Resend REST API usa reply_to
-          html: teamHtml,
-        },
-        {
-          from: "ReadVC Contacto <noreply@readvc.app>",
-          to: [email],
-          subject: userSubject,
-          html: userHtml,
-        }
-      ])
-    });
+      {
+        from: "ReadVC Contacto <noreply@readvc.app>",
+        to: [email],
+        subject: userSubject,
+        html: userHtml,
+      }
+    ]);
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Resend API Error (Fetch):", errorData);
+    if (error) {
+      console.error("Resend API Error:", error);
       return NextResponse.json(
         { error: "RESEND_ERROR" },
         { status: 500 }
