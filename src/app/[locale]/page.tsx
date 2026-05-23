@@ -97,36 +97,36 @@ export default function Home() {
       </section>
 
       {/* El Problema (El Dolor) */}
-      <section id="problem" className="w-full py-32 bg-background relative overflow-hidden">
+      <section id="problem" className="w-full py-20 md:py-32 bg-background relative overflow-hidden">
         <Spotlight className="bg-destructive/10 blur-[120px] top-[20%]" />
         <ScrollReveal className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-flex items-center rounded-full border border-destructive/20 bg-destructive/10 px-3 py-1 text-sm font-medium text-destructive mb-4">
+          <div className="flex flex-col items-center text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center rounded-full border border-destructive/20 bg-destructive/10 px-3 py-1 text-xs md:text-sm font-medium text-destructive mb-4">
               {t("problem.badge")}
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground mb-4 md:mb-6">
               {t("problem.title")}
             </h2>
-            <p className="max-w-[800px] text-xl text-muted-foreground">
+            <p className="max-w-[800px] text-base md:text-lg lg:text-xl text-muted-foreground">
               {t("problem.subtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            <div className="flex flex-col items-center text-center p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border border-destructive/10 hover:border-destructive/30 transition-colors">
-              <Clock className="w-12 h-12 text-destructive mb-4 opacity-80" />
-              <h3 className="text-xl font-bold mb-3">{t("problem.card1title")}</h3>
-              <p className="text-muted-foreground">{t("problem.card1desc")}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto mb-12">
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border border-destructive/10 hover:border-destructive/30 transition-colors">
+              <Clock className="w-10 md:w-12 h-10 md:h-12 text-destructive mb-4 opacity-80" />
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("problem.card1title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("problem.card1desc")}</p>
             </div>
-            <div className="flex flex-col items-center text-center p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border border-destructive/10 hover:border-destructive/30 transition-colors">
-              <EarOff className="w-12 h-12 text-destructive mb-4 opacity-80" />
-              <h3 className="text-xl font-bold mb-3">{t("problem.card2title")}</h3>
-              <p className="text-muted-foreground">{t("problem.card2desc")}</p>
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border border-destructive/10 hover:border-destructive/30 transition-colors">
+              <EarOff className="w-10 md:w-12 h-10 md:h-12 text-destructive mb-4 opacity-80" />
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("problem.card2title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("problem.card2desc")}</p>
             </div>
-            <div className="flex flex-col items-center text-center p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border border-destructive/10 hover:border-destructive/30 transition-colors">
-              <PhoneCall className="w-12 h-12 text-destructive mb-4 opacity-80" />
-              <h3 className="text-xl font-bold mb-3">{t("problem.card3title")}</h3>
-              <p className="text-muted-foreground">{t("problem.card3desc")}</p>
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border border-destructive/10 hover:border-destructive/30 transition-colors">
+              <PhoneCall className="w-10 md:w-12 h-10 md:h-12 text-destructive mb-4 opacity-80" />
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("problem.card3title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("problem.card3desc")}</p>
             </div>
           </div>
 
@@ -135,7 +135,7 @@ export default function Home() {
               href="/problem"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "h-14 px-8 gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg rounded-2xl",
+                "h-12 md:h-14 px-6 md:px-8 gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base md:text-lg rounded-2xl",
                 "shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] hover:shadow-[0_0_60px_-15px_rgba(37,99,235,0.7)] transition-all duration-300 hover:-translate-y-1 animate-pulse"
               )}
             >
@@ -147,52 +147,52 @@ export default function Home() {
       </section>
 
       {/* La Solución */}
-      <section id="solution" className="w-full py-32 bg-secondary/30 relative overflow-hidden">
+      <section id="solution" className="w-full py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
         <Spotlight className="bg-primary/5 blur-[150px] right-0 translate-x-1/2" />
         <ScrollReveal className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+          <div className="flex flex-col items-center text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs md:text-sm font-medium text-primary mb-4">
               {t("solution.badge")}
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground mb-4 md:mb-6">
               {t("solution.title")}
             </h2>
-            <p className="max-w-[800px] text-xl text-muted-foreground">
+            <p className="max-w-[800px] text-base md:text-lg lg:text-xl text-muted-foreground">
               {t("solution.subtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex flex-col p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border hover:border-primary/50 transition-colors">
-              <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
-                <Mic className="h-6 w-6" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="flex flex-col p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border hover:border-primary/50 transition-colors">
+              <div className="h-10 md:h-12 w-10 md:w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6 text-primary">
+                <Mic className="h-5 md:h-6 w-5 md:w-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t("solution.card1title")}</h3>
-              <p className="text-muted-foreground">{t("solution.card1desc")}</p>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("solution.card1title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("solution.card1desc")}</p>
             </div>
 
-            <div className="flex flex-col p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border hover:border-[#10B981]/50 transition-colors">
-              <div className="h-12 w-12 rounded-2xl bg-[#10B981]/10 flex items-center justify-center mb-6 text-[#10B981]">
-                <MessageSquare className="h-6 w-6" />
+            <div className="flex flex-col p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border hover:border-[#10B981]/50 transition-colors">
+              <div className="h-10 md:h-12 w-10 md:w-12 rounded-2xl bg-[#10B981]/10 flex items-center justify-center mb-4 md:mb-6 text-[#10B981]">
+                <MessageSquare className="h-5 md:h-6 w-5 md:w-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t("solution.card2title")}</h3>
-              <p className="text-muted-foreground">{t("solution.card2desc")}</p>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("solution.card2title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("solution.card2desc")}</p>
             </div>
 
-            <div className="flex flex-col p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border hover:border-primary/50 transition-colors">
-              <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
-                <Zap className="h-6 w-6" />
+            <div className="flex flex-col p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border hover:border-primary/50 transition-colors">
+              <div className="h-10 md:h-12 w-10 md:w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6 text-primary">
+                <Zap className="h-5 md:h-6 w-5 md:w-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t("solution.card3title")}</h3>
-              <p className="text-muted-foreground">{t("solution.card3desc")}</p>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("solution.card3title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("solution.card3desc")}</p>
             </div>
 
-            <div className="flex flex-col p-8 bg-card/60 backdrop-blur-md rounded-3xl shadow-sm border hover:border-[#EF4444]/50 transition-colors">
-              <div className="h-12 w-12 rounded-2xl bg-[#EF4444]/10 flex items-center justify-center mb-6 text-[#EF4444]">
-                <Shield className="h-6 w-6" />
+            <div className="flex flex-col p-6 md:p-8 bg-card/60 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-sm border hover:border-[#EF4444]/50 transition-colors">
+              <div className="h-10 md:h-12 w-10 md:w-12 rounded-2xl bg-[#EF4444]/10 flex items-center justify-center mb-4 md:mb-6 text-[#EF4444]">
+                <Shield className="h-5 md:h-6 w-5 md:w-6" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t("solution.card4title")}</h3>
-              <p className="text-muted-foreground">{t("solution.card4desc")}</p>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t("solution.card4title")}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{t("solution.card4desc")}</p>
             </div>
           </div>
 
@@ -201,7 +201,7 @@ export default function Home() {
               href="/solution"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "h-14 px-8 gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg rounded-2xl",
+                "h-12 md:h-14 px-6 md:px-8 gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base md:text-lg rounded-2xl",
                 "shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] hover:shadow-[0_0_60px_-15px_rgba(37,99,235,0.7)] transition-all duration-300 hover:-translate-y-1 animate-pulse"
               )}
             >
@@ -213,42 +213,43 @@ export default function Home() {
       </section>
 
       {/* Mockups / How it works */}
-      <section id="how-it-works" className="w-full py-32 bg-background relative overflow-hidden">
+      <section id="how-it-works" className="w-full py-20 md:py-32 bg-background relative overflow-hidden">
         <ScrollReveal className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex-1 space-y-8">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+            {/* Left side - Steps */}
+            <div className="w-full lg:flex-1 space-y-8">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">{t("howItWorks.title")}</h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground">
                 {t("howItWorks.subtitle")}
               </p>
 
-              <div className="space-y-8 pt-4">
+              <div className="space-y-6 md:space-y-8 pt-4">
                 <div className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30">1</div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">{t("howItWorks.step1title")}</h4>
-                    <p className="text-muted-foreground">{t("howItWorks.step1desc")}</p>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">1</div>
+                  <div className="flex-1">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step1title")}</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">{t("howItWorks.step1desc")}</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30">2</div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">{t("howItWorks.step2title")}</h4>
-                    <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: t.raw("howItWorks.step2desc") }}></p>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">2</div>
+                  <div className="flex-1">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step2title")}</h4>
+                    <p className="text-muted-foreground text-sm md:text-base" dangerouslySetInnerHTML={{ __html: t.raw("howItWorks.step2desc") }}></p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30">3</div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">{t("howItWorks.step3title")}</h4>
-                    <p className="text-muted-foreground">{t("howItWorks.step3desc")}</p>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">3</div>
+                  <div className="flex-1">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step3title")}</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">{t("howItWorks.step3desc")}</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30">4</div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">{t("howItWorks.step4title")}</h4>
-                    <p className="text-muted-foreground">{t("howItWorks.step4desc")}</p>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">4</div>
+                  <div className="flex-1">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step4title")}</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">{t("howItWorks.step4desc")}</p>
                   </div>
                 </div>
                 
@@ -257,7 +258,7 @@ export default function Home() {
                     href="/demo" 
                     className={cn(
                       buttonVariants({ size: "lg" }),
-                      "w-full md:w-auto h-14 px-8 gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg rounded-2xl",
+                      "w-full md:w-auto h-12 md:h-14 px-6 md:px-8 gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base md:text-lg rounded-2xl",
                       "shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] hover:shadow-[0_0_60px_-15px_rgba(37,99,235,0.7)] transition-all duration-300 hover:-translate-y-1 animate-pulse"
                     )}
                   >
@@ -268,36 +269,78 @@ export default function Home() {
               </div>
             </div>
 
-            {/* UI Concept Mockup */}
-            <div className="flex-1 w-full max-w-md mx-auto relative">
-              <div className="relative aspect-[9/19] bg-slate-900 dark:bg-black rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden">
-                <div className="absolute top-0 w-full h-12 flex justify-center pt-2 z-20">
-                  <div className="w-1/3 h-6 bg-slate-800 rounded-full"></div>
-                </div>
-                <div className="absolute inset-0 bg-background flex flex-col pt-16">
-                  {/* Header Caller */}
-                  <div className="text-center pb-4 border-b border-border/50 bg-background/95 backdrop-blur z-10">
-                    <h3 className="text-xl font-bold">{t("howItWorks.mockupTitle")}</h3>
-                    <p className="text-sm font-mono text-primary flex items-center justify-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                      {t("howItWorks.mockupTime")}
-                    </p>
+            {/* Right side - Phone Mockup */}
+            <div className="w-full lg:flex-1 flex justify-center px-4 md:px-0">
+              <div className="w-full max-w-xs md:max-w-sm relative">
+                {/* Phone frame */}
+                <div className="relative bg-slate-900 dark:bg-black rounded-[2.5rem] md:rounded-[3rem] border-[6px] md:border-[8px] border-slate-800 shadow-2xl overflow-hidden">
+                  {/* Notch */}
+                  <div className="absolute top-0 w-full h-8 md:h-12 flex justify-center pt-1 md:pt-2 z-20">
+                    <div className="w-1/3 h-5 md:h-6 bg-slate-800 rounded-full"></div>
                   </div>
+                  
+                  {/* Phone content */}
+                  <div className="aspect-[9/19] bg-background flex flex-col">
+                    {/* Header Caller */}
+                    <div className="text-center pt-10 md:pt-12 pb-3 md:pb-4 border-b border-border/50 bg-background/95 backdrop-blur z-10">
+                      <h3 className="text-base md:text-xl font-bold truncate px-2">{t("howItWorks.mockupTitle")}</h3>
+                      <p className="text-xs md:text-sm font-mono text-primary flex items-center justify-center gap-2 mt-1">
+                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        {t("howItWorks.mockupTime")}
+                      </p>
+                    </div>
 
-                  {/* Chat Area */}
-                  <div className="flex-1 overflow-hidden flex flex-col p-4 gap-4 bg-secondary/30">
-                    <div className="flex flex-col gap-1 w-4/5">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold ml-2">{t("howItWorks.mockupDoctor")}</span>
-                      <div className="p-3.5 rounded-2xl rounded-tl-none bg-card border shadow-sm text-[15px]">
-                        <p className="text-foreground">{t("howItWorks.mockupDoctorMsg1")}</p>
+                    {/* Chat Area */}
+                    <div className="flex-1 overflow-hidden flex flex-col p-3 md:p-4 gap-3 md:gap-4 bg-secondary/30">
+                      <div className="flex flex-col gap-1 w-4/5">
+                        <span className="text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-wider font-bold ml-2">{t("howItWorks.mockupDoctor")}</span>
+                        <div className="p-2.5 md:p-3.5 rounded-2xl rounded-tl-none bg-card border shadow-sm text-[12px] md:text-[15px] leading-relaxed">
+                          <p className="text-foreground">{t("howItWorks.mockupDoctorMsg1")}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-1 w-4/5 ml-auto">
+                        <span className="text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-wider font-bold mr-2 text-right">{t("howItWorks.mockupYou")}</span>
+                        <div className="p-2.5 md:p-3.5 rounded-2xl rounded-tr-none bg-primary text-primary-foreground shadow-sm text-[12px] md:text-[15px] leading-relaxed">
+                          <p>{t("howItWorks.mockupYouMsg")}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-1 w-4/5">
+                        <span className="text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-wider font-bold ml-2">{t("howItWorks.mockupDoctor")}</span>
+                        <div className="p-2.5 md:p-3.5 rounded-2xl rounded-tl-none bg-card border shadow-sm text-[12px] md:text-[15px] border-primary/50 relative leading-relaxed">
+                          <span className="absolute -left-1.5 top-3 w-3 h-3 bg-primary rounded-full animate-ping opacity-75"></span>
+                          <p className="text-foreground">{t("howItWorks.mockupDoctorMsg2")}<span className="text-muted-foreground animate-pulse">|</span></p>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-1 w-4/5 ml-auto">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold mr-2 text-right">{t("howItWorks.mockupYou")}</span>
-                      <div className="p-3.5 rounded-2xl rounded-tr-none bg-primary text-primary-foreground shadow-sm text-[15px]">
-                        <p>{t("howItWorks.mockupYouMsg")}</p>
+                    {/* Input Area */}
+                    <div className="p-3 md:p-4 bg-background border-t">
+                      <div className="flex gap-2 mb-2 md:mb-3 overflow-x-auto pb-1 hide-scrollbar">
+                        <span className="whitespace-nowrap px-2.5 md:px-3 py-1 bg-secondary rounded-full text-[10px] md:text-xs font-medium border cursor-pointer hover:bg-secondary/80 text-nowrap">{t("howItWorks.mockupReply1")}</span>
+                        <span className="whitespace-nowrap px-2.5 md:px-3 py-1 bg-secondary rounded-full text-[10px] md:text-xs font-medium border cursor-pointer hover:bg-secondary/80 text-nowrap">{t("howItWorks.mockupReply2")}</span>
+                        <span className="whitespace-nowrap px-2.5 md:px-3 py-1 bg-secondary rounded-full text-[10px] md:text-xs font-medium border cursor-pointer hover:bg-secondary/80 text-nowrap">{t("howItWorks.mockupReply3")}</span>
                       </div>
+                      <div className="relative mb-3 md:mb-4">
+                        <input type="text" placeholder={t("howItWorks.mockupPlaceholder")} className="w-full bg-secondary border rounded-full py-2 md:py-3 px-3 md:px-4 pr-10 md:pr-12 text-xs md:text-sm outline-none focus:ring-2 focus:ring-primary/50" />
+                        <button className="absolute right-2 md:right-2 top-1/2 -translate-y-1/2 w-6 md:w-8 h-6 md:h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                      </div>
+                      <div className="flex gap-4 md:gap-6 justify-center">
+                        <div className="h-10 md:h-14 w-10 md:w-14 rounded-full bg-[#EF4444] flex items-center justify-center shadow-md cursor-pointer hover:bg-[#DC2626] transition-colors">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91" /><line x1="22" x2="2" y1="2" y2="22" /></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
                     </div>
 
                     <div className="flex flex-col gap-1 w-4/5">
@@ -387,22 +430,22 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="w-full py-32 bg-secondary/30 relative overflow-hidden">
+      <section id="faq" className="w-full py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
         <ScrollReveal className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col lg:flex-row gap-16 items-start max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start max-w-6xl mx-auto">
             {/* Left Column: Title & CTA */}
-            <div className="lg:w-1/3 lg:sticky lg:top-32 space-y-6">
+            <div className="w-full lg:w-1/3 space-y-6">
               <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                 FAQ
               </div>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
                 {t("faq.title")}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 {t("faq.subtitle")}
               </p>
               
-              <div className="pt-8 border-t border-border/50">
+              <div className="pt-6 md:pt-8 border-t border-border/50 mt-6 md:mt-0">
                 <h4 className="font-semibold text-foreground mb-2">{t("faq.stillHaveQuestions")}</h4>
                 <p className="text-sm text-muted-foreground mb-4">{t("faq.helpClearDoubts")}</p>
                 <Link href="#contact" className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto rounded-xl" })}>
@@ -412,49 +455,49 @@ export default function Home() {
             </div>
 
             {/* Right Column: Accordion Cards */}
-            <div className="lg:w-2/3 w-full">
-              <Accordion className="w-full space-y-4">
-                <AccordionItem value="item-1" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-6 py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
-                  <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline hover:text-primary">
+            <div className="w-full lg:w-2/3">
+              <Accordion className="w-full space-y-3 md:space-y-4">
+                <AccordionItem value="item-1" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-4 md:px-6 py-3 md:py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg hover:no-underline hover:text-primary py-2">
                     {t("faq.q1")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pt-2">
                     <div dangerouslySetInnerHTML={{ __html: t.raw("faq.a1") }} />
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-2" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-6 py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
-                  <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline hover:text-primary">
+                <AccordionItem value="item-2" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-4 md:px-6 py-3 md:py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg hover:no-underline hover:text-primary py-2">
                     {t("faq.q2")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pt-2">
                     <div dangerouslySetInnerHTML={{ __html: t.raw("faq.a2") }} />
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-6 py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
-                  <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline hover:text-primary">
+                <AccordionItem value="item-3" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-4 md:px-6 py-3 md:py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg hover:no-underline hover:text-primary py-2">
                     {t("faq.q3")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pt-2">
                     <div dangerouslySetInnerHTML={{ __html: t.raw("faq.a3") }} />
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-4" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-6 py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
-                  <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline hover:text-primary">
+                <AccordionItem value="item-4" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-4 md:px-6 py-3 md:py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg hover:no-underline hover:text-primary py-2">
                     {t("faq.q4")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pt-2">
                     <div dangerouslySetInnerHTML={{ __html: t.raw("faq.a4") }} />
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-5" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-6 py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
-                  <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline hover:text-primary">
+                <AccordionItem value="item-5" className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-sm px-4 md:px-6 py-3 md:py-2 transition-all hover:border-primary/30 data-[state=open]:border-primary/50">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg hover:no-underline hover:text-primary py-2">
                     {t("faq.q5")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pt-2">
                     <div dangerouslySetInnerHTML={{ __html: t.raw("faq.a5") }} />
                   </AccordionContent>
                 </AccordionItem>
@@ -465,25 +508,25 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-32 bg-background relative overflow-hidden">
+      <section id="contact" className="w-full py-20 md:py-32 bg-background relative overflow-hidden">
         <Spotlight className="bg-primary/20 blur-[150px] bottom-0 translate-y-1/2" />
         <ScrollReveal className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="max-w-3xl mx-auto text-center border border-primary/20 p-8 md:p-14 rounded-[3rem] bg-card/60 backdrop-blur-2xl shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+          <div className="max-w-3xl mx-auto text-center border border-primary/20 p-6 md:p-8 lg:p-14 rounded-2xl md:rounded-3xl lg:rounded-[3rem] bg-card/60 backdrop-blur-2xl shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl hidden md:block"></div>
+            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl hidden md:block"></div>
 
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-sm font-medium mb-6 border">
+            <div className="relative z-10 space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs md:text-sm font-medium mb-4 md:mb-6 border">
                 <MessageSquare className="w-4 h-4 text-primary" />
                 {t("contact.badge")}
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">{t("contact.title")}</h2>
-              <p className="text-xl text-muted-foreground mb-10">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter">{t("contact.title")}</h2>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10">
                 {t("contact.subtitle")}
               </p>
 
               <ContactForm />
-              <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
+              <p className="text-xs md:text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
                 <Shield className="w-4 h-4" />
                 {t("contact.secure")}
               </p>
