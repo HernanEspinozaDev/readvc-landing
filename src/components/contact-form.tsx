@@ -69,10 +69,16 @@ export function ContactForm() {
           setErrorMessage(localeErrors[errorCode as keyof typeof localeErrors] || localeErrors.UNKNOWN_ERROR);
         }
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Fetch/JSON parse error:", error);
       setSubmitStatus("error");
       const localeErrors = errorMessages[locale as keyof typeof errorMessages] || errorMessages.en;
-      setErrorMessage(localeErrors.NETWORK_ERROR);
+      // Si el error es de parseo JSON, significa que el servidor retornó HTML (como un 500 genérico de Vercel)
+      if (error?.message?.includes("JSON")) {
+        setErrorMessage(localeErrors.SERVER_ERROR);
+      } else {
+        setErrorMessage(localeErrors.NETWORK_ERROR);
+      }
     } finally {
       setIsSubmitting(false);
     }
