@@ -55,22 +55,14 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# --- CONFIGURACIONES DE VERCEL ---
-# Ignorar configuraciones locales generadas por la herramienta CLI de Vercel
-.vercel
-
 # --- TYPESCRIPT ---
 *.tsbuildinfo
 next-env.d.ts
 
-
-.vercel
-.env*
-
 # OpenNext
 .open-next
 
-# wrangler files
+# wrangler files (Cloudflare)
 .wrangler
 .dev.vars*
 !.dev.vars.example

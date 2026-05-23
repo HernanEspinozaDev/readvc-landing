@@ -12,8 +12,20 @@ const contactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    // Inicializar Resend dentro del handler para evitar errores durante la compilación si la variable no está definida aún
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    // Intentar leer la API Key de todas las formas posibles en el entorno Edge de Cloudflare
+    const apiKey = 
+      process.env.RESEND_API_KEY || 
+      (globalThis as any).RESEND_API_KEY || 
+      (globalThis as any).process?.env?.RESEND_API_KEY;
+
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Error: La variable de entorno RESEND_API_KEY no fue detectada por Cloudflare. Verifica que la hayas configurado como Variable de Entorno en tu panel de Cloudflare y hayas hecho un redeploy." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const body = await req.json();
     const result = contactSchema.safeParse(body);
 
@@ -76,7 +88,7 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error("Error in contact API:", error);
     return NextResponse.json(
-      { error: "Error interno del servidor" },
+      { error: error instanceof Error ? `Error del Servidor: ${error.message}` : "Error interno desconocido del servidor" },
       { status: 500 }
     );
   }
