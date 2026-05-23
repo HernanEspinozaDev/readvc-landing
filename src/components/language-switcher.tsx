@@ -1,33 +1,35 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
-import { ChangeEvent } from "react";
-import { Globe } from "lucide-react";
 
 export function LanguageSwitcher() {
-  const t = useTranslations("Navbar");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
-  function onSelectChange(e: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = e.target.value;
+  function toggleLanguage() {
+    const nextLocale = locale === "es" ? "en" : "es";
     router.replace(pathname, { locale: nextLocale });
   }
 
   return (
-    <div className="relative flex items-center space-x-1 border border-input rounded-md px-2 py-1 text-sm bg-background">
-      <Globe className="h-4 w-4 text-muted-foreground" />
-      <select
-        value={locale}
-        onChange={onSelectChange}
-        className="bg-transparent border-none outline-none cursor-pointer appearance-none pr-4 text-muted-foreground hover:text-foreground focus:ring-0"
-        title="Change language"
-      >
-        <option value="es">ES</option>
-        <option value="en">EN</option>
-      </select>
-    </div>
+    <button
+      onClick={toggleLanguage}
+      className="relative flex items-center p-1 w-16 h-8 bg-secondary/50 rounded-full border border-input cursor-pointer transition-colors hover:bg-secondary/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+      title={locale === 'es' ? "Cambiar a Inglés" : "Switch to English"}
+      aria-label="Toggle language"
+    >
+      <div className="absolute inset-0 flex items-center justify-between px-[6px] z-10 text-[11px] font-bold select-none pointer-events-none">
+        <span className={`w-1/2 text-center transition-colors duration-300 ${locale === 'es' ? 'text-foreground' : 'text-muted-foreground'}`}>ES</span>
+        <span className={`w-1/2 text-center transition-colors duration-300 ${locale === 'en' ? 'text-foreground' : 'text-muted-foreground'}`}>EN</span>
+      </div>
+      
+      <div 
+        className={`w-6 h-6 bg-background shadow-md rounded-full transition-transform duration-300 ease-out ${
+          locale === 'en' ? 'translate-x-8' : 'translate-x-0'
+        }`}
+      />
+    </button>
   );
 }
