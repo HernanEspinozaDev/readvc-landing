@@ -38,10 +38,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: `https://readvc.app/${locale}`,
+      canonical: `https://www.readvc.app/${locale}`,
       languages: {
-        'es': 'https://readvc.app/es',
-        'en': 'https://readvc.app/en',
+        'es': 'https://www.readvc.app/es',
+        'en': 'https://www.readvc.app/en',
+        'x-default': 'https://www.readvc.app/es',
       },
     },
   };

@@ -23,7 +23,7 @@ export function Pricing() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground mb-6">
             {t("title")}
           </h2>
-          <p className="max-w-[800px] text-xl text-muted-foreground">
+          <p className="max-w-[800px] text-xl text-foreground/80 font-medium">
             {t("subtitle")}
           </p>
         </div>

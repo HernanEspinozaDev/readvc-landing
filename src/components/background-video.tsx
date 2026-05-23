@@ -41,6 +41,7 @@ export function BackgroundVideo({ src, playbackRate = 1, opacity = 0.2 }: Backgr
           }}
         >
           <source src={src} type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English" default={false} />
         </video>
       </div>
 

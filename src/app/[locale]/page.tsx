@@ -13,7 +13,10 @@ import { cn } from "@/lib/utils"
 import { Spotlight } from "@/components/ui/spotlight"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { BackgroundVideo } from "@/components/background-video"
-import { ContactForm } from "@/components/contact-form"
+import dynamic from "next/dynamic"
+
+const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: false })
+import Image from "next/image"
 
 export default function Home() {
   const t = useTranslations("Home")
@@ -72,7 +75,7 @@ export default function Home() {
         
         {/* Bouncing Scroll Indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-          <Link href="#problem" className="flex flex-col items-center group cursor-pointer">
+          <Link href="#problem" className="flex flex-col items-center group cursor-pointer" aria-label="Scroll to problem section">
             <div className="h-10 w-6 rounded-full border-2 border-muted-foreground/50 flex justify-center p-1 mb-2">
               <div className="w-1 h-2 bg-primary rounded-full animate-bounce mt-1"></div>
             </div>
@@ -90,8 +93,8 @@ export default function Home() {
             {t("validation.text")}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            <img src="/StartUpChile.webp" alt="Startup Chile" className="h-14 md:h-20 object-contain" />
-            <img src="/creainacap.webp" alt="CREA INACAP" className="h-12 md:h-16 object-contain" />
+            <Image src="/StartUpChile.webp" alt="Startup Chile" width={240} height={80} className="h-14 md:h-20 w-auto object-contain" />
+            <Image src="/creainacap.webp" alt="CREA INACAP" width={240} height={80} className="h-12 md:h-16 w-auto object-contain" />
           </div>
         </ScrollReveal>
       </section>
@@ -227,28 +230,28 @@ export default function Home() {
                 <div className="flex gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">1</div>
                   <div className="flex-1">
-                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step1title")}</h4>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step1title")}</h3>
                     <p className="text-muted-foreground text-sm md:text-base">{t("howItWorks.step1desc")}</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">2</div>
                   <div className="flex-1">
-                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step2title")}</h4>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step2title")}</h3>
                     <p className="text-muted-foreground text-sm md:text-base" dangerouslySetInnerHTML={{ __html: t.raw("howItWorks.step2desc") }}></p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">3</div>
                   <div className="flex-1">
-                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step3title")}</h4>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step3title")}</h3>
                     <p className="text-muted-foreground text-sm md:text-base">{t("howItWorks.step3desc")}</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold border border-primary/30 text-sm md:text-base">4</div>
                   <div className="flex-1">
-                    <h4 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step4title")}</h4>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{t("howItWorks.step4title")}</h3>
                     <p className="text-muted-foreground text-sm md:text-base">{t("howItWorks.step4desc")}</p>
                   </div>
                 </div>
@@ -324,7 +327,7 @@ export default function Home() {
                       </div>
                       <div className="relative mb-3 md:mb-4">
                         <input type="text" placeholder={t("howItWorks.mockupPlaceholder")} className="w-full bg-secondary border rounded-full py-2 md:py-3 px-3 md:px-4 pr-10 md:pr-12 text-xs md:text-sm outline-none focus:ring-2 focus:ring-primary/50" />
-                        <button className="absolute right-2 md:right-2 top-1/2 -translate-y-1/2 w-6 md:w-8 h-6 md:h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                        <button aria-label="Send message mock" className="absolute right-2 md:right-2 top-1/2 -translate-y-1/2 w-6 md:w-8 h-6 md:h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                         </button>
                       </div>
@@ -352,7 +355,7 @@ export default function Home() {
             <div className="md:w-1/3 flex justify-center">
               {/* Fotografía / Avatar */}
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-primary/20 overflow-hidden bg-secondary flex items-center justify-center shadow-lg">
-                <img src="/hernan.webp" alt="Hernán Espinoza" className="w-full h-full object-cover" />
+                <Image src="/hernan.webp" alt="Hernán Espinoza" width={256} height={256} className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="md:w-2/3 space-y-6 text-center md:text-left">
@@ -410,7 +413,7 @@ export default function Home() {
               </p>
               
               <div className="pt-6 md:pt-8 border-t border-border/50 mt-6 md:mt-0">
-                <h4 className="font-semibold text-foreground mb-2">{t("faq.stillHaveQuestions")}</h4>
+                <h3 className="font-semibold text-foreground mb-2">{t("faq.stillHaveQuestions")}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{t("faq.helpClearDoubts")}</p>
                 <Link href="#contact" className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto rounded-xl" })}>
                   {t("faq.contactUs")}
