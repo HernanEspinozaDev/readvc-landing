@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 import { z } from "zod";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+
+export const runtime = "edge";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "El nombre es demasiado corto" }),
@@ -33,7 +34,6 @@ export async function POST(req: Request) {
       );
     }
 
-    const resend = new Resend(apiKey);
     const body = await req.json();
     const { name, email, message, locale } = body;
 
@@ -94,28 +94,33 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    // Enviar los correos usando Promise.all para enviar en paralelo (notificación + confirmación)
-    const [teamResponse, userResponse] = await Promise.all([
-      // 1. Email to the team
-      resend.emails.send({
-        from: "ReadVC Contacto <noreply@readvc.app>",
-        to: ["hello@readvc.app"],
-        subject: `📩 Nuevo mensaje de ${name}`,
-        replyTo: email,
-        html: teamHtml,
-      }),
-      // 2. Email to the user
-      resend.emails.send({
-        from: "ReadVC Contacto <noreply@readvc.app>",
-        to: [email],
-        subject: userSubject,
-        html: userHtml,
-      })
-    ]);
+    // Enviar los correos usando fetch nativo directamente a la API de Resend (compatible 100% con Cloudflare Edge)
+    const response = await fetch('https://api.resend.com/emails/batch', {
+      method: 'POST',
+      headers: {
+        'Authorization': \`Bearer \${apiKey}\`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([
+        {
+          from: "ReadVC Contacto <noreply@readvc.app>",
+          to: ["hello@readvc.app"],
+          subject: \`📩 Nuevo mensaje de \${name}\`,
+          reply_to: email, // Resend REST API usa reply_to
+          html: teamHtml,
+        },
+        {
+          from: "ReadVC Contacto <noreply@readvc.app>",
+          to: [email],
+          subject: userSubject,
+          html: userHtml,
+        }
+      ])
+    });
 
-    if (teamResponse.error || userResponse.error) {
-      console.error("Resend API Error (Team):", teamResponse.error);
-      console.error("Resend API Error (User):", userResponse.error);
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Resend API Error (Fetch):", errorData);
       return NextResponse.json(
         { error: "RESEND_ERROR" },
         { status: 500 }
@@ -134,3 +139,4 @@ export async function POST(req: Request) {
     );
   }
 }
+
