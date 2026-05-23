@@ -12,10 +12,12 @@ const contactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    const apiKey = process.env.RESEND_API_KEY;
+    // Get API key from environment
+    // In Cloudflare Pages, this comes from wrangler.jsonc secrets configuration
+    const apiKey = process.env.RESEND_API_KEY?.trim();
 
     if (!apiKey) {
-      console.error("RESEND_API_KEY not found in environment variables");
+      console.error("RESEND_API_KEY not configured. Check Cloudflare Pages environment variables.");
       return NextResponse.json(
         { error: "SERVER_ERROR" },
         { status: 500 }
