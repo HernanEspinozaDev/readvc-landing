@@ -85,27 +85,28 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    // Enviar los correos usando batch send (notificación al equipo + confirmación al cliente)
-    const { data, error } = await resend.batch.send([
+    // Enviar los correos usando Promise.all para enviar en paralelo (notificación + confirmación)
+    const [teamResponse, userResponse] = await Promise.all([
       // 1. Email to the team
-      {
+      resend.emails.send({
         from: "ReadVC Contacto <noreply@readvc.app>",
         to: ["hello@readvc.app"],
         subject: `📩 Nuevo mensaje de ${name}`,
         replyTo: email,
         html: teamHtml,
-      },
+      }),
       // 2. Email to the user
-      {
+      resend.emails.send({
         from: "ReadVC Contacto <noreply@readvc.app>",
         to: [email],
         subject: userSubject,
         html: userHtml,
-      }
+      })
     ]);
 
-    if (error) {
-      console.error("Resend API Error:", error);
+    if (teamResponse.error || userResponse.error) {
+      console.error("Resend API Error (Team):", teamResponse.error);
+      console.error("Resend API Error (User):", userResponse.error);
       return NextResponse.json(
         { error: "RESEND_ERROR" },
         { status: 500 }
