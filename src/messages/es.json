@@ -1,0 +1,396 @@
+{
+  "Metadata": {
+    "title": "ReadVC | Making every voice call visible",
+    "description": "Asistente telefónico con IA Edge para accesibilidad total y llamadas sin barreras.",
+    "demoTitle": "Demo y Funciones | ReadVC",
+    "demoDescription": "Descubre todas las características y capacidades del asistente de llamadas ReadVC.",
+    "problemTitle": "El Problema | ReadVC",
+    "problemDescription": "Conoce en profundidad la brecha invisible de accesibilidad telefónica que afecta a millones de personas.",
+    "solutionTitle": "La Solución | ReadVC",
+    "solutionDescription": "Descubre la tecnología detrás de ReadVC: Edge AI, Rust y privacidad absoluta."
+  },
+  "Navbar": {
+    "problem": "El Problema",
+    "solution": "Solución",
+    "about": "Quiénes Somos",
+    "faq": "FAQ",
+    "contact": "Contáctanos"
+  },
+  "Footer": {
+    "ctaTitle": "Construyendo el futuro de la accesibilidad.",
+    "ctaSubtitle": "Únete a la lista de espera para acceso anticipado.",
+    "tagline": "Read Voice Call - Making Every Voice Call Visible.",
+    "product": "Producto",
+    "problem": "El Problema",
+    "solution": "La Solución",
+    "company": "Compañía",
+    "about": "Quiénes Somos",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "legal": "Legal",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "emailPlaceholder": "tu@email.com",
+    "subscribe": "Suscribirse",
+    "status": "Todos los sistemas operativos",
+    "builtWith": "Hecho en Chile 🇨🇱. Para el mundo 🌍.",
+    "copyright": "© {year} ReadVC. Todos los derechos reservados."
+  },
+  "Home": {
+    "hero": {
+      "title": "La primera solución bidireccional de <span class=\"text-primary\">accesibilidad telefónica.</span>",
+      "subtitle": "Devolvemos la autonomía a personas con discapacidad auditiva o dificultades del habla. Transcripción instantánea y voz natural offline mediante Edge AI.",
+      "contactBtn": "Contáctanos",
+      "demoBtn": "Ver demo",
+      "stat1": "700K+",
+      "stat1desc": "Personas con discapacidad auditiva en Chile",
+      "stat2": "430M+",
+      "stat2desc": "Usuarios potenciales globales",
+      "stat3": "<200ms",
+      "stat3desc": "Latencia crítica en Edge AI"
+    },
+    "validation": {
+      "text": "En proceso de postulación a"
+    },
+    "problem": {
+      "badge": "El Problema",
+      "title": "El 100% de la red telefónica exige audio.",
+      "subtitle": "Para más de 700.000 personas en Chile (y 1.500 millones en el mundo), una simple llamada de emergencia, médica o laboral es una barrera infranqueable.",
+      "card1title": "La tiranía del tiempo",
+      "card1desc": "Las llamadas exigen respuestas en menos de 2 segundos. El silencio prolongado significa que te corten la llamada.",
+      "card2title": "Falta de autonomía",
+      "card2desc": "Depender de un familiar, amigo o intérprete humano para agendar una cita o hacer un trámite privado.",
+      "card3title": "Soluciones insuficientes",
+      "card3desc": "Las apps actuales requieren internet rápido, te obligan a usar números virtuales o comparten tus audios en la nube.",
+      "button": "Profundizar en el problema"
+    },
+    "solution": {
+      "badge": "Nuestra Solución",
+      "title": "Automatizamos la traducción sensorial.",
+      "subtitle": "ReadVC reemplaza la pantalla de llamadas estándar de tu teléfono, procesando todo el audio localmente sin enviarlo a internet.",
+      "card1title": "Transcripción Local",
+      "card1desc": "Convertimos el audio a texto en menos de 200ms directo en la pantalla. Entiende modismos locales.",
+      "card2title": "Respuesta en Texto",
+      "card2desc": "Escribes tu respuesta como si estuvieras en WhatsApp. Tú controlas exactamente lo que dices.",
+      "card3title": "Síntesis de Voz",
+      "card3desc": "Inyectamos tu texto convertido en voz neural directamente a la llamada, fluyendo de forma natural.",
+      "card4title": "100% Offline",
+      "card4desc": "Utilizamos Edge AI (modelos Rust/Kotlin). Funciona sin plan de datos, resguardando tu privacidad absoluta.",
+      "button": "Profundizar en la solución"
+    },
+    "howItWorks": {
+      "title": "Así se ve la autonomía.",
+      "subtitle": "Una interfaz familiar diseñada para reducir el estrés cognitivo durante la llamada.",
+      "step1title": "Entra una llamada",
+      "step1desc": "Ves en pantalla quién te llama y decides si contestar. Control total sobre la privacidad.",
+      "step2title": "ReadVC contesta por ti",
+      "step2desc": "Un saludo automático advierte: <span class=\"italic text-foreground\">\"Hola, tengo discapacidad auditiva. Estoy usando ReadVC, un asistente de texto a voz, tardaré un momento en contestar...\"</span> (Mensaje automático ajustable).",
+      "step3title": "Lees y respondes",
+      "step3desc": "Lo que te dicen aparece en texto en tiempo real. Tú escribes tu respuesta con ayuda predictiva.",
+      "step4title": "Ellos escuchan tu voz",
+      "step4desc": "Tu texto se convierte instantáneamente en voz natural. Para el otro lado, la conversación fluye normal.",
+      "button": "Ver todas las funciones del Demo",
+      "mockupTitle": "Doctora María",
+      "mockupTime": "02:14",
+      "mockupDoctor": "Doctora",
+      "mockupDoctorMsg1": "Hola Hernán, ¿cómo estás? Quería confirmar tu hora de mañana a las...",
+      "mockupYou": "Tú",
+      "mockupYouMsg": "Sí doctora, ahí estaré a las 15:30.",
+      "mockupDoctorMsg2": "Perfecto, ¿necesitas alguna...",
+      "mockupReply1": "Sí, gracias.",
+      "mockupReply2": "No, todo bien.",
+      "mockupReply3": "Reagendar",
+      "mockupPlaceholder": "Escribe para hablar..."
+    },
+    "about": {
+      "badge": "Founder-Market Fit",
+      "title": "Creado desde la vivencia real, no desde la teoría.",
+      "p1": "El fundador y creador de ReadVC, <strong class=\"text-foreground\">Hernán Espinoza</strong>, es Ingeniero en Informática y Desarrollador Certificado AWS con más de 10 años de experiencia técnica. Vive con <strong>hipoacusia bilateral profunda</strong> y conoce de primera mano lo que implica la dificultad de realizar una llamada, la pérdida de oportunidades laborales y la frustrante dependencia de terceros.",
+      "p2": "ReadVC nace por una necesidad propia para resolver el problema de miles. No es una hipótesis de mercado, es la dedicación exclusiva al 100% para devolver la autonomía mediante el uso de Inteligencia Artificial (Edge AI), conformando además su Proyecto de Título universitario.",
+      "linkedin": "Conectar en LinkedIn",
+      "missionTitle": "Nuestra Misión",
+      "missionDesc": "Romper la barrera del silencio en las comunicaciones telefónicas. Queremos que 700 mil personas en Chile —y más de 430 millones en el mundo— puedan contestar una llamada, expresarse y sentir que el mundo las escucha, sin depender de terceros y sin comprometer su privacidad.",
+      "visionTitle": "Nuestra Visión",
+      "visionDesc": "Un mundo donde la discapacidad auditiva o las dificultades del habla no sean barrera para la comunicación. ReadVC es el puente que transforma cada teléfono en una terminal accesible, descentralizada y centrada en la dignidad de quienes la usan."
+    },
+    "faq": {
+      "title": "Todo lo que necesitas saber",
+      "subtitle": "Respondemos las dudas más comunes sobre el acceso, privacidad y funcionamiento de ReadVC.",
+      "q1": "¿En qué se diferencia de otras soluciones?",
+      "a1": "La mayoría de las plataformas requieren conexión a internet, cambiar de número o usan intermediarios. Nosotros procesamos el audio de forma nativa en tu teléfono usando IA, sin requerir Wi-Fi ni cambiar tu compañía celular.",
+      "q2": "¿Qué pasa con la privacidad de mis llamadas?",
+      "a2": "Tu privacidad está garantizada por diseño. Todo el reconocimiento de voz (ASR) ocurre <strong>localmente (Offline)</strong> en tu dispositivo a través de Edge AI. Tus conversaciones nunca pasan por nuestros servidores.",
+      "q3": "¿Tendré que pagar por usar la plataforma?",
+      "a3": "Tendremos una <strong>versión Freemium (gratuita)</strong> para siempre, diseñada para maximizar el impacto social y ayudar a quienes realmente lo necesitan. Las funciones más avanzadas corporativas serán de pago.",
+      "q4": "¿Funcionará con mi número de teléfono actual?",
+      "a4": "Sí. ReadVC reemplaza la pantalla de llamada tradicional de tu sistema Android. Sigues recibiendo y haciendo llamadas usando tu número de teléfono y tu plan telefónico actual.",
+      "q5": "¿Cuándo podré descargar la beta?",
+      "a5": "Actualmente estamos finalizando nuestra fase de pruebas Alpha cerrada. Inscríbete en nuestra lista de espera para ser el primero en recibir acceso temprano, conocer los avances y obtener beneficios exclusivos.",
+      "stillHaveQuestions": "¿Aún tienes dudas?",
+      "helpClearDoubts": "Estamos aquí para ayudarte a resolver cualquier inquietud.",
+      "contactUs": "Contáctanos"
+    },
+    "contact": {
+      "badge": "Hablemos",
+      "title": "Ponte en contacto.",
+      "subtitle": "¿Tienes dudas, sugerencias o quieres colaborar con nosotros? Escríbenos y te responderemos a la brevedad.",
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "emailLabel": "Correo",
+      "emailPlaceholder": "tu@correo.com",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "¿En qué te podemos ayudar?",
+      "submit": "Enviar Mensaje",
+      "secure": "Tu información está segura con nosotros."
+    }
+  },
+  "Pricing": {
+    "badge": "Escalabilidad y Acceso",
+    "title": "Modelo de Negocio Sostenible.",
+    "subtitle": "Un enfoque híbrido que garantiza adopción masiva gratuita para quienes más lo necesitan, sostenido por características premium y corporativas.",
+    "freemium": {
+      "title": "Freemium",
+      "desc": "Para impacto social directo.",
+      "price": "$0",
+      "f1": "Transcripción básica STT",
+      "f2": "Síntesis de voz (TTS) estándar",
+      "f3": "100% Offline y Privado",
+      "footer": "Ideal para usuarios iniciales y adopción masiva (Boca a boca)."
+    },
+    "premium": {
+      "badge": "Productividad",
+      "title": "Premium",
+      "desc": "Público general y profesionales.",
+      "price": "$1-10",
+      "f1": "Traducción simultánea en tiempo real",
+      "f2": "Voces neuronales personalizadas",
+      "f3": "Backups encriptados Zero-Knowledge",
+      "footer": "Modelo por suscripción o recargas (Top-Ups) on-demand."
+    },
+    "b2b": {
+      "title": "Corporativo B2B",
+      "desc": "Cumplimiento legal para empresas.",
+      "price": "A medida",
+      "f1": "Licencias al por mayor",
+      "f2": "Cumplimiento Ley de Inclusión y Consumidor",
+      "f3": "Soporte prioritario e integración",
+      "footer": "Ideal para Clínicas, Bancos y Call Centers."
+    }
+  },
+  "Demo": {
+    "hero": {
+      "badge": "Tour de Funciones",
+      "title": "Todo lo que ReadVC puede hacer por ti",
+      "subtitle": "Experimenta una llamada real y descubre el desglose completo de nuestras características."
+    },
+    "interactive": {
+      "title": "Demo Interactivo: Así funciona una llamada",
+      "subtitle": "Experimenta ambos lados de la conversación. En un panel verás la pantalla de quien usa ReadVC y en el otro lo que escucha quien llama.",
+      "startBtn": "Iniciar Simulador de Llamada",
+      "close": "Cerrar",
+      "modalTitle": "Simulación en tiempo real",
+      "modalSubtitle": "Inicia la llamada en el teléfono de la derecha para comenzar.",
+      "phone1Title": "ReadVC",
+      "phone1Waiting": "Esperando llamadas...",
+      "phone1Rejected": "Llamada rechazada",
+      "phone1Caller": "CESFAM Centro Médico",
+      "phone1Ringing": "Llamada entrante...",
+      "phone1Active": "Llamada en curso",
+      "phone1Ended": "Finalizada",
+      "phone1Transcribing": "Transcribiendo (Local)",
+      "phone1Placeholder": "Escribe tu respuesta...",
+      "networkText": "Red GSM / Wi-Fi",
+      "phone2Title": "Usuario ReadVC",
+      "phone2Idle": "Celular",
+      "phone2Ringing": "Llamando...",
+      "phone2Rejected": "Usuario no disponible",
+      "phone2Ended": "Llamada finalizada",
+      "phone2Speaking": "Escuchando voz sintetizada...",
+      "phone2Typing": "Tú estás hablando...",
+      "phone2Silent": "En silencio",
+      "script1": "Hola, tengo discapacidad auditiva. Estoy usando ReadVC, un asistente de texto a voz, tardaré un momento en contestar... (Mensaje automático)",
+      "script2": "¡Hola! No se preocupe. Le llamamos del CESFAM para confirmar su hora médica de mañana a las 10:00 AM con medicina general.",
+      "script3": "Perfecto. Recuerde llegar con 15 minutos de anticipación y traer su carnet de identidad. ¿Tiene alguna duda?",
+      "script4": "Muy bien, su hora está confirmada. Que tenga un excelente día. Hasta luego.",
+      "replies": {
+        "r1_1": "Hola, muchas gracias. Confirmo mi asistencia.",
+        "r1_2": "Hola, no podré asistir.",
+        "r2_1": "Entendido, estaré ahí con anticipación.",
+        "r2_2": "Todo claro, no tengo dudas.",
+        "r3_1": "Muchas gracias. Hasta luego.",
+        "r3_2": "Igualmente, adiós."
+      }
+    },
+    "tabs": {
+      "step": "Paso",
+      "t1": {
+        "title": "Funciones Centrales",
+        "subtitle": "El Puente de Accesibilidad",
+        "f1title": "Transcripción STT Local",
+        "f1desc": "La app 'escucha' al interlocutor y transcribe instantáneamente usando modelos locales (Whisper).",
+        "f2title": "Síntesis TTS Ultrarrápida",
+        "f2desc": "Escribe tu respuesta y se convertirá en voz natural fluida en milisegundos (Piper) para el otro lado.",
+        "f3title": "Soporte Multi-Red",
+        "f3desc": "Intercepta y funciona sobre la red celular telefónica tradicional (GSM) y también por internet (Wi-Fi).",
+        "f4title": "100% Offline",
+        "f4desc": "El procesamiento ocurre en el chip del teléfono. Funciona en el metro, zonas rurales o sin plan de datos."
+      },
+      "t2": {
+        "title": "Experiencia de Usuario",
+        "subtitle": "El Asistente Diario",
+        "f1title": "Interfaz tipo 'Chat'",
+        "f1desc": "Reemplaza la pantalla negra tradicional por una interfaz visual estilo WhatsApp. Ves la llamada como mensajes.",
+        "f2title": "Historial Local Seguro",
+        "f2desc": "Las transcripciones se guardan en el dispositivo para no olvidar indicaciones médicas o direcciones.",
+        "f3title": "Lectura Discreta",
+        "f3desc": "Permite 'leer' de qué trata una llamada entrante si estás en una reunión donde no puedes hablar ni escuchar."
+      },
+      "t3": {
+        "title": "Funciones Premium",
+        "subtitle": "Escala tu Productividad",
+        "f1title": "Traducción Simultánea",
+        "f1desc": "Si el interlocutor habla en inglés, lo lees en español; respondes en español y él escucha en inglés.",
+        "f2title": "Voces Personalizadas",
+        "f2desc": "Catálogo premium de voces de alta calidad con diferentes acentos para representar tu identidad.",
+        "f3title": "Respaldos en la Nube",
+        "f3desc": "Sincronización encriptada del historial de llamadas con Google Drive al cambiar de teléfono.",
+        "f4title": "Modelo Top-Ups",
+        "f4desc": "Compra de paquetes de minutos 'on-demand' para traducciones sin pagar suscripción mensual."
+      },
+      "t4": {
+        "title": "Seguridad y Deep Tech",
+        "subtitle": "Arquitectura Inquebrantable",
+        "f1title": "Arquitectura Dinámica",
+        "f1desc": "El núcleo en Rust detecta los recursos del teléfono e 'intercambia' modelos de IA para no agotar la batería.",
+        "f2title": "Zero-Knowledge",
+        "f2desc": "Nadie más que tú puede leer tus llamadas. El audio jamás viaja a la nube, todo ocurre on-device.",
+        "f3title": "Encriptación AES-256",
+        "f3desc": "El historial local y los respaldos se encriptan con una llave que solo posees tú."
+      }
+    },
+    "cta": {
+      "title": "Modelo de Negocio Sostenible",
+      "subtitle": "Un enfoque híbrido que garantiza adopción masiva gratuita para quienes más lo necesitan, sostenido por características premium y corporativas.",
+      "btn": "Ver Escalabilidad y Acceso"
+    }
+  },
+  "Problem": {
+    "hero": {
+      "badge": "La Brecha Invisible",
+      "title": "El 100% de la red telefónica exige audio.",
+      "subtitle": "No es solo un problema de audición o de habla. Es un problema de sincronía, derechos y autonomía. Descubre por qué las llamadas actuales son un muro infranqueable."
+    },
+    "groups": {
+      "badge": "Impacto Directo",
+      "title": "¿A quiénes estamos dejando fuera?",
+      "subtitle": "Más de 700.000 personas en Chile y 430+ millones en el mundo enfrentan este dolor a diario. Selecciona un grupo para profundizar.",
+      "g1": {
+        "title": "Comunidad Sorda e Hipoacúsica",
+        "subtitle": "100% de la red celular les exige audio.",
+        "desc": "La red GSM es nativamente sonora. Los audífonos convencionales a menudo se acoplan al teléfono o el audio digitalizado es incomprensible. Las ayudas estatales actuales (como VIAD) requieren intérpretes humanos, vulnerando la privacidad y limitando la autonomía.",
+        "i1": "Inaccesibilidad a urgencias reales (133/131 no tienen texto).",
+        "i2": "Pérdida de independencia para citas médicas personales."
+      },
+      "g2": {
+        "title": "Trastornos del Habla y Afasias",
+        "subtitle": "La tiranía de los 2 segundos.",
+        "desc": "Pueden escuchar perfectamente, pero su respuesta oral puede ser más lenta o utilizar voces esofágicas (por laringectomías) que el teléfono distorsiona haciéndolas incomprensibles para el interlocutor.",
+        "i1": "Si hay silencio por más de 2 segundos, el interlocutor asume que se cortó y finaliza la llamada.",
+        "i2": "Discriminación sistémica en Call Centers."
+      },
+      "g3": {
+        "title": "Neurodivergencia y TEA",
+        "subtitle": "Sobrecarga sensorial y telefobia.",
+        "desc": "El audio de baja calidad y la presión de responder en tiempo real generan ansiedad severa o sobrecarga sensorial, llevando al aislamiento. La Ley TEA actual no cubre herramientas tecnológicas para la independencia diaria.",
+        "i1": "Falta de un \"buffer cognitivo\" para procesar la información a su propio ritmo."
+      }
+    },
+    "gaps": {
+      "title": "Las 3 Brechas Críticas",
+      "gap1title": "1. La Brecha de Tiempo (La Sincronía)",
+      "gap1desc": "Las llamadas telefónicas exigen respuestas inmediatas. Las personas con tartamudez, afasia, o que necesitan usar un teclado para responder, requieren más tiempo de procesamiento. Al no responder rápido, el interlocutor asume que se cortó y finaliza la llamada.",
+      "gap2title": "2. La Brecha de Formato",
+      "gap2desc": "La red celular tradicional solo transmite audio analógico o digital codificado. No soporta texto de forma nativa. Esto deja a quienes dependen de la comunicación visual fuera del sistema bancario, de salud y de emergencias que todavía insisten en validar a través de llamadas.",
+      "gap3title": "3. La Brecha de Privacidad",
+      "gap3desc": "Las soluciones que ofrece el Estado (como VIAD) requieren intermediarios humanos (intérpretes). Un adulto pierde su autonomía si debe pedirle a su madre o a un tercero que le ayude a llamar al médico por un tema personal."
+    },
+    "barriers": {
+      "title": "El Mundo Sigue Operando por Voz",
+      "subtitle": "La brecha no es solo tecnológica, es de acceso a servicios básicos. La incapacidad de realizar una llamada excluye a millones de:",
+      "b1title": "Entrevistas de Trabajo",
+      "b1desc": "Los reclutadores prefieren la agilidad de una llamada telefónica para el primer filtro. Si no puedes contestar, asumen falta de interés.",
+      "b2title": "Emergencias Médicas",
+      "b2desc": "Llamar al 131 (Ambulancia) o 133 (Carabineros) exige comunicación oral inmediata. El tiempo es vida, y el texto nativo no existe aquí.",
+      "b3title": "Operaciones Bancarias",
+      "b3desc": "Para desbloquear una tarjeta o confirmar una transacción sospechosa, el banco exige validación de identidad por voz.",
+      "b4title": "Atención al Cliente",
+      "b4desc": "Dar de baja un servicio de internet, coordinar entregas de paquetería o hacer reclamos sigue requiriendo largas esperas telefónicas."
+    },
+    "competitors": {
+      "title": "¿Por qué fallan las soluciones actuales?",
+      "subtitle": "Existen intentos, pero ninguno resuelve el problema de raíz de manera autónoma, rápida, universal y 100% privada.",
+      "c1title": "Video Interpretación (VIAD / Estatal)",
+      "c1desc": "Pérdida total de privacidad. Requiere agenda, internet estable y dependes de un tercero (intérprete) para cada asunto personal.",
+      "c2title": "Google Live Caption",
+      "c2desc": "Solo subtitula, no te permite responder oralmente si no puedes hablar (no es bidireccional). Solo lees cómo te hablan.",
+      "c3title": "Samsung Galaxy AI / Bixby",
+      "c3desc": "Restringido a teléfonos caros de alta gama. Su modo de texto no es verdaderamente fluido para conversaciones naturales.",
+      "c4title": "Apple iOS Nativo (Live Speech)",
+      "c4desc": "Opciones de accesibilidad limitadas y fragmentadas. No permite la inyección o lectura fluida en llamadas GSM nativas directamente."
+    },
+    "cta": {
+      "title": "El silencio no es opción. Conoce cómo lo resolvemos.",
+      "btn": "Ver la Solución de ReadVC"
+    }
+  },
+  "Solution": {
+    "hero": {
+      "badge": "El Puente Sensorial",
+      "title": "Ingeniería de nivel empresarial, con propósito humano.",
+      "subtitle": "ReadVC no es solo un transcriptor. Es una arquitectura compleja de Inteligencia Artificial que opera íntegramente en tu dispositivo (Edge AI), garantizando comunicaciones fluidas, sin retrasos y 100% privadas."
+    },
+    "pillars": {
+      "title": "Los Tres Pilares de ReadVC",
+      "subtitle": "Diseñamos una tecnología pensada en la resiliencia. Una falla durante una llamada crítica no es una opción.",
+      "p1title": "Ultra-Baja Latencia",
+      "p1desc": "En una conversación telefónica, cada milisegundo cuenta. Alcanzamos latencias <strong>inferiores a 200ms</strong> en la conversión STT/TTS gracias a modelos IA locales optimizados, permitiendo una charla verdaderamente natural.",
+      "p2title": "Privacidad por Diseño",
+      "p2desc": "Arquitectura <strong>Zero-Knowledge</strong>. El audio nunca viaja a servidores en la nube. Todo el procesamiento ocurre en el <em>sandbox</em> de tu teléfono, protegido con encriptación AES-256.",
+      "p3title": "Agnóstico a la Red",
+      "p3desc": "Funciona en la red celular nativa (GSM) o Wi-Fi. Al no requerir plan de datos para procesar el audio (100% Offline), garantiza su funcionamiento en zonas rurales o de baja conectividad."
+    },
+    "tech": {
+      "title": "Stack Tecnológico de 4 Capas",
+      "subtitle": "Hemos desarrollado un motor híbrido que combina la mejor experiencia de usuario en Android con el rendimiento brutal de lenguajes de bajo nivel para IA.",
+      "t1title": "UI & OS (Kotlin)",
+      "t1sub": "Interacción con el sistema operativo",
+      "t1desc": "Gestión nativa de llamadas en Android usando InCallService sin depender de librerías de terceros o nubes externas. La interfaz de usuario está construida en Jetpack Compose para un rendimiento impecable a 60fps.",
+      "t2title": "JNI Bridge",
+      "t2sub": "Transferencia de memoria ultra rápida",
+      "t2desc": "Transferencia Zero-copy entre la máquina virtual de Java (JVM) y el código nativo. Los buffers de audio en crudo viajan directamente a la IA sin copias intermedias de memoria, ahorrando milisegundos valiosos.",
+      "t3title": "Core (Rust)",
+      "t3sub": "Motor de audio de altísimo rendimiento",
+      "t3desc": "El núcleo de toda la lógica de audio está escrito en Rust. Esto asegura un manejo de memoria impecable, totalmente libre del Garbage Collector, garantizando que el audio no tenga micro-cortes ni latencias impredecibles.",
+      "t4title": "Modelos IA (Edge)",
+      "t4sub": "Whisper & Piper on-device",
+      "t4desc": "Modelos generativos locales altamente optimizados y cuantizados a Int8. Son capaces de realizar inferencia STT (Speech-to-Text) y TTS (Text-to-Speech) usando menos de 300MB de memoria RAM del teléfono móvil."
+    },
+    "bento": {
+      "badge": "El Núcleo del Rendimiento",
+      "title": "¿Por qué usar Rust en el Backend Móvil?",
+      "subtitle": "Procesar audio y correr Inteligencia Artificial en vivo dentro de un celular requiere ingeniería de bajo nivel. Rust es la única opción razonable.",
+      "b1title": "Memory Safety sin pausas",
+      "b1desc": "Rust garantiza seguridad de memoria en tiempo de compilación. No hay recolector de basura (GC) pausando la ejecución, lo cual es crucial para no tener caídas de frames o audio durante llamadas prolongadas.",
+      "b2title": "Rendimiento C/C++",
+      "b2desc": "Desempeño a nivel del metal para inferencia IA en tiempo real, permitiéndonos lograr latencias <200ms en el mismo dispositivo.",
+      "b3title": "Multiplataforma Nativa",
+      "b3desc": "El 70% del código central (el motor IA y la lógica de audio) será reutilizado directamente en nuestra futura versión de iOS (Swift) gracias a las capacidades de compilación cruzada de Rust.",
+      "b4title": "Ecosistema ML Firme",
+      "b4desc": "Soporte moderno, seguro y maduro para machine learning local gracias a crates potentes como Burn, Candle y ndarray."
+    },
+    "cta": {
+      "title": "Descentralizamos la accesibilidad.",
+      "btn": "Ver demo"
+    }
+  }
+}
