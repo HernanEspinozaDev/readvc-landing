@@ -18,8 +18,9 @@ export async function POST(req: Request) {
     try {
       // opennextjs-cloudflare inyecta las variables de entorno en el contexto de la request
       const cfContext = await getCloudflareContext({ async: true });
-      if (cfContext?.env?.RESEND_API_KEY) {
-        apiKey = (cfContext.env.RESEND_API_KEY as string).trim();
+      const env = cfContext?.env as any;
+      if (env?.RESEND_API_KEY) {
+        apiKey = (env.RESEND_API_KEY as string).trim();
       }
     } catch (e) {
       // Ignorar si no estamos en el entorno de Cloudflare
@@ -98,14 +99,14 @@ export async function POST(req: Request) {
     const response = await fetch('https://api.resend.com/emails/batch', {
       method: 'POST',
       headers: {
-        'Authorization': \`Bearer \${apiKey}\`,
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify([
         {
           from: "ReadVC Contacto <noreply@readvc.app>",
           to: ["hello@readvc.app"],
-          subject: \`📩 Nuevo mensaje de \${name}\`,
+          subject: `📩 Nuevo mensaje de ${name}`,
           reply_to: email, // Resend REST API usa reply_to
           html: teamHtml,
         },
