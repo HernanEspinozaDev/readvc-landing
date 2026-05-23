@@ -1,0 +1,81 @@
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().min(2, { message: "El nombre es demasiado corto" }),
+  email: z.string().email({ message: "Email inválido" }),
+  message: z.string().min(5, { message: "El mensaje es demasiado corto" }),
+});
+
+export async function POST(req: Request) {
+  try {
+    // Inicializar Resend dentro del handler para evitar errores durante la compilación si la variable no está definida aún
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const body = await req.json();
+    const result = contactSchema.safeParse(body);
+
+    if (!result.success) {
+      return NextResponse.json(
+        { error: result.error.issues[0].message },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, message } = result.data;
+
+    // Enviar el correo usando Resend
+    // Usamos el remitente 'noreply@readvc.app' que ya está configurado en tu dominio verificado.
+    const { data, error } = await resend.emails.send({
+      from: "ReadVC Contacto <noreply@readvc.app>",
+      to: ["hello@readvc.app"],
+      subject: `📩 Nuevo mensaje de ${name}`,
+      replyTo: email, // Permite que al dar clic en 'Responder' en tu bandeja se envíe al cliente
+      html: `
+        <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 10px;">
+          <h2 style="color: #6366f1; border-bottom: 2px solid #f3f4f6; padding-bottom: 10px;">Nuevo mensaje de contacto</h2>
+          <p>Has recibido un nuevo mensaje desde el formulario de contacto de tu sitio web:</p>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <tr>
+              <td style="padding: 8px 0; font-weight: bold; width: 120px;">Nombre:</td>
+              <td style="padding: 8px 0;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; font-weight: bold;">Email:</td>
+              <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
+            </tr>
+          </table>
+          
+          <div style="margin-top: 20px; padding: 15px; background-color: #f9fafb; border-radius: 8px; border: 1px solid #f3f4f6;">
+            <strong style="display: block; margin-bottom: 8px; color: #4b5563;">Mensaje:</strong>
+            <p style="margin: 0; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+          </div>
+          
+          <div style="margin-top: 30px; font-size: 11px; color: #9ca3af; text-align: center; border-top: 1px solid #f3f4f6; padding-top: 15px;">
+            Este correo fue generado de manera automática por el formulario de la landing de ReadVC.
+          </div>
+        </div>
+      `,
+    });
+
+    if (error) {
+      console.error("Resend API Error:", error);
+      return NextResponse.json(
+        { error: "No se pudo enviar el correo mediante Resend" },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: "¡Mensaje enviado con éxito!" },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error in contact API:", error);
+    return NextResponse.json(
+      { error: "Error interno del servidor" },
+      { status: 500 }
+    );
+  }
+}

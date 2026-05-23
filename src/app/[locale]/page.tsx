@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils"
 import { Spotlight } from "@/components/ui/spotlight"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { BackgroundVideo } from "@/components/background-video"
+import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
   const t = useTranslations("Home")
@@ -481,45 +482,7 @@ export default function Home() {
                 {t("contact.subtitle")}
               </p>
 
-              <form className="flex flex-col gap-4 max-w-lg mx-auto text-left" action="mailto:hello@readvc.app" method="post" encType="text/plain">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex-1 space-y-1">
-                    <label htmlFor="name" className="text-sm font-medium ml-1">{t("contact.nameLabel")}</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder={t("contact.namePlaceholder")}
-                      className="flex h-12 w-full rounded-xl border border-input bg-background px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 shadow-sm"
-                      required
-                    />
-                  </div>
-                  <div className="flex-1 space-y-1">
-                    <label htmlFor="email" className="text-sm font-medium ml-1">{t("contact.emailLabel")}</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder={t("contact.emailPlaceholder")}
-                      className="flex h-12 w-full rounded-xl border border-input bg-background px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 shadow-sm"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <label htmlFor="message" className="text-sm font-medium ml-1">{t("contact.messageLabel")}</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder={t("contact.messagePlaceholder")}
-                    className="flex min-h-[120px] w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 shadow-sm resize-y"
-                    required
-                  ></textarea>
-                </div>
-                <button type="submit" className={buttonVariants({ size: "lg", className: "h-12 w-full font-bold text-base rounded-xl cursor-pointer mt-2" })}>
-                  {t("contact.submit")}
-                </button>
-              </form>
+              <ContactForm />
               <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
                 <Shield className="w-4 h-4" />
                 {t("contact.secure")}
