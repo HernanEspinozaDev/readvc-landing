@@ -17,7 +17,7 @@ export function Pricing() {
     <section id="business" className="w-full py-20 md:py-32 bg-secondary/30 border-b border-border/40">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-bold text-foreground mb-4">
             {t("badge")}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground mb-6">
