@@ -1,15 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { buttonVariants } from "@/components/ui/button";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
 export function ContactForm() {
   const t = useTranslations("Home");
+  const locale = useLocale();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const errorMessages: Record<string, Record<string, string>> = {
+    en: {
+      VALIDATION_ERROR: "Please check your input and try again.",
+      RESEND_ERROR: "Could not send the message. Please try again.",
+      SERVER_ERROR: "Server error. Please try again later.",
+      NETWORK_ERROR: "Could not connect to the server. Please check your connection.",
+      UNKNOWN_ERROR: "An unexpected error occurred. Please try again.",
+    },
+    es: {
+      VALIDATION_ERROR: "Por favor revisa tu información e intenta nuevamente.",
+      RESEND_ERROR: "No se pudo enviar el mensaje. Intenta de nuevo.",
+      SERVER_ERROR: "Error del servidor. Intenta nuevamente más tarde.",
+      NETWORK_ERROR: "No se pudo conectar al servidor. Revisa tu conexión.",
+      UNKNOWN_ERROR: "Ocurrió un error inesperado. Intenta de nuevo.",
+    },
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,6 +40,7 @@ export function ContactForm() {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
+      locale,
     };
 
     try {
@@ -35,37 +54,53 @@ export function ContactForm() {
 
       const result = await res.json();
 
-      if (res.ok) {
+      if (res.ok && result.success) {
         setSubmitStatus("success");
         e.currentTarget.reset();
       } else {
         setSubmitStatus("error");
-        setErrorMessage(result.error || "Ocurrió un error inesperado.");
+        const errorCode = result.error || "UNKNOWN_ERROR";
+        const localeErrors = errorMessages[locale as keyof typeof errorMessages] || errorMessages.en;
+        setErrorMessage(localeErrors[errorCode as keyof typeof localeErrors] || localeErrors.UNKNOWN_ERROR);
       }
     } catch (error) {
       setSubmitStatus("error");
-      setErrorMessage("No se pudo establecer conexión con el servidor.");
+      const localeErrors = errorMessages[locale as keyof typeof errorMessages] || errorMessages.en;
+      setErrorMessage(localeErrors.NETWORK_ERROR);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   if (submitStatus === "success") {
+    const successTexts: Record<string, { title: string; message: string; button: string }> = {
+      en: {
+        title: "Message Sent!",
+        message: "Thank you for reaching out. We'll respond to your message as soon as possible at the email you provided.",
+        button: "Send Another Message",
+      },
+      es: {
+        title: "¡Mensaje Enviado!",
+        message: "Gracias por escribirnos. Nos pondremos en contacto con el email que indicaste muy pronto.",
+        button: "Enviar otro mensaje",
+      },
+    };
+    const texts = successTexts[locale as keyof typeof successTexts] || successTexts.en;
+
     return (
       <div className="max-w-lg mx-auto text-center py-8 px-6 rounded-2xl bg-primary/5 border border-primary/20 backdrop-blur-sm animate-fade-in space-y-4">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-2">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="text-2xl font-bold text-foreground">¡Mensaje Recibido!</h3>
+        <h3 className="text-2xl font-bold text-foreground">{texts.title}</h3>
         <p className="text-muted-foreground leading-relaxed">
-          Gracias por escribirnos. Tu consulta ha sido procesada correctamente a través de Resend.
-          Nos pondremos en contacto contigo en la dirección indicada muy pronto.
+          {texts.message}
         </p>
         <button
           onClick={() => setSubmitStatus(null)}
           className={buttonVariants({ variant: "outline", className: "mt-4 cursor-pointer rounded-xl font-medium" })}
         >
-          Enviar otro mensaje
+          {texts.button}
         </button>
       </div>
     );
@@ -136,7 +171,7 @@ export function ContactForm() {
         {isSubmitting ? (
           <>
             <Loader2 className="w-5 h-5 animate-spin" />
-            Enviando...
+            {locale === "es" ? "Enviando..." : "Sending..."}
           </>
         ) : (
           t("contact.submit")

@@ -12,31 +12,28 @@ const contactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    // Intentar leer la API Key de todas las formas posibles en el entorno Edge de Cloudflare
-    const apiKey = 
-      process.env.RESEND_API_KEY || 
-      (globalThis as any).RESEND_API_KEY || 
-      (globalThis as any).process?.env?.RESEND_API_KEY;
+    const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
+      console.error("RESEND_API_KEY not found in environment variables");
       return NextResponse.json(
-        { error: "Error: La variable de entorno RESEND_API_KEY no fue detectada por Cloudflare. Verifica que la hayas configurado como Variable de Entorno en tu panel de Cloudflare y hayas hecho un redeploy." },
+        { error: "SERVER_ERROR" },
         { status: 500 }
       );
     }
 
     const resend = new Resend(apiKey);
     const body = await req.json();
-    const result = contactSchema.safeParse(body);
+    const { name, email, message, locale } = body;
 
-    if (!result.success) {
+    // Validation
+    const validationResult = contactSchema.safeParse({ name, email, message });
+    if (!validationResult.success) {
       return NextResponse.json(
-        { error: result.error.issues[0].message },
+        { error: "VALIDATION_ERROR", details: validationResult.error.issues[0].message },
         { status: 400 }
       );
     }
-
-    const { name, email, message } = result.data;
 
     // Enviar el correo usando Resend
     // Usamos el remitente 'noreply@readvc.app' que ya está configurado en tu dominio verificado.
@@ -76,19 +73,19 @@ export async function POST(req: Request) {
     if (error) {
       console.error("Resend API Error:", error);
       return NextResponse.json(
-        { error: "No se pudo enviar el correo mediante Resend" },
+        { error: "RESEND_ERROR" },
         { status: 500 }
       );
     }
 
     return NextResponse.json(
-      { message: "¡Mensaje enviado con éxito!" },
+      { success: true },
       { status: 200 }
     );
   } catch (error) {
     console.error("Error in contact API:", error);
     return NextResponse.json(
-      { error: error instanceof Error ? `Error del Servidor: ${error.message}` : "Error interno desconocido del servidor" },
+      { error: "SERVER_ERROR" },
       { status: 500 }
     );
   }
