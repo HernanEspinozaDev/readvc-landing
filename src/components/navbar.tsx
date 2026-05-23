@@ -91,15 +91,13 @@ export function Navbar() {
         <div className="flex items-center space-x-2">
           <LanguageSwitcher />
           <ThemeToggle />
-          {/* Contact button - desktop only (hidden when mobile menu would appear) */}
-          {!isMobileMenuOpen && (
-            <Link 
-              href={pathname === "/" ? "/#contact" : "/#contact"}
-              className={buttonVariants({ className: "hidden lg:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-medium" })}
-            >
-              {t("contact")}
-            </Link>
-          )}
+          {/* Contact button - desktop only */}
+          <Link 
+            href={pathname === "/" ? "/#contact" : "/#contact"}
+            className={buttonVariants({ className: "hidden lg:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-medium" })}
+          >
+            {t("contact")}
+          </Link>
           {/* Mobile menu button */}
           <Button 
             variant="ghost" 
