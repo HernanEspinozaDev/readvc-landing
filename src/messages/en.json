@@ -149,6 +149,7 @@
     "title": "Sustainable Business Model.",
     "subtitle": "A hybrid approach that guarantees massive free adoption for those who need it most, sustained by premium and corporate features.",
     "freemium": {
+      "badge": "Social Impact",
       "title": "Freemium",
       "desc": "For direct social impact.",
       "price": "$0",
@@ -168,6 +169,7 @@
       "footer": "Subscription model or on-demand Top-Ups."
     },
     "b2b": {
+      "badge": "Corporate",
       "title": "B2B Corporate",
       "desc": "Legal compliance for companies.",
       "price": "Custom",

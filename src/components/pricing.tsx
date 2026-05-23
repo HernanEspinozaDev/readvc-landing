@@ -39,6 +39,11 @@ export function Pricing() {
                 : "bg-card border-border/50 hover:border-primary/50"
             )}
           >
+            {selectedPlan === 'freemium' && (
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                {t("freemium.badge")}
+              </div>
+            )}
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-2">{t("freemium.title")}</h3>
               <p className="text-muted-foreground text-sm">{t("freemium.desc")}</p>
@@ -128,6 +133,11 @@ export function Pricing() {
                 : "bg-card border-border/50 hover:border-primary/50"
             )}
           >
+            {selectedPlan === 'b2b' && (
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                {t("b2b.badge")}
+              </div>
+            )}
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-2">{t("b2b.title")}</h3>
               <p className="text-muted-foreground text-sm">{t("b2b.desc")}</p>

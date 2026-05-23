@@ -63,7 +63,7 @@ export function Navbar() {
           </Link>
           
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id
               const href = pathname === "/" ? `/#${link.id}` : `/#${link.id}`
@@ -93,14 +93,14 @@ export function Navbar() {
           <ThemeToggle />
           <Link 
             href={pathname === "/" ? "/#contact" : "/#contact"}
-            className={buttonVariants({ className: "hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-medium" })}
+            className={buttonVariants({ className: "hidden lg:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-medium" })}
           >
             {t("contact")}
           </Link>
           <Button 
             variant="ghost" 
             size="icon" 
-            className="md:hidden" 
+            className="lg:hidden" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <Menu className="h-5 w-5" />
@@ -111,7 +111,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border/40 shadow-lg flex flex-col p-4 space-y-4 z-50">
+        <div className="lg:hidden absolute top-16 left-0 w-full bg-background border-b border-border/40 shadow-lg flex flex-col p-4 space-y-4 z-50">
           {navLinks.map((link) => (
             <Link 
               key={link.id}

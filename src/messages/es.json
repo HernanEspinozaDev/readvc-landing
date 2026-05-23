@@ -149,6 +149,7 @@
     "title": "Modelo de Negocio Sostenible.",
     "subtitle": "Un enfoque híbrido que garantiza adopción masiva gratuita para quienes más lo necesitan, sostenido por características premium y corporativas.",
     "freemium": {
+      "badge": "Impacto Social",
       "title": "Freemium",
       "desc": "Para impacto social directo.",
       "price": "$0",
@@ -168,6 +169,7 @@
       "footer": "Modelo por suscripción o recargas (Top-Ups) on-demand."
     },
     "b2b": {
+      "badge": "Corporativo",
       "title": "Corporativo B2B",
       "desc": "Cumplimiento legal para empresas.",
       "price": "A medida",
