@@ -91,7 +91,6 @@ export default function Home() {
             {t("validation.text")}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            <Image src="/StartUpChile.webp" alt="Startup Chile" width={240} height={80} className="h-14 md:h-20 w-auto object-contain" />
             <Image src="/creainacap.webp" alt="CREA INACAP" width={240} height={80} className="h-12 md:h-16 w-auto object-contain" />
           </div>
         </ScrollReveal>
